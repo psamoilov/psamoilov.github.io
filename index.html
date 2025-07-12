@@ -3,18 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Diagbox</title>
+<title>ESP</title>
 <link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="icon-152.png">
+<style>
+body,html{margin:0;padding:0;height:100%;overflow:hidden}
+iframe{width:100%;height:100%;border:0}
+.loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:Arial;display:none}
+</style>
 </head>
-<body style="font-family:Arial;text-align:center;padding:50px 20px">
-<h2>Diagbox</h2>
-<div>Connecting...</div>
-<a href="http://192.168.11.1/" style="display:inline-block;padding:15px 30px;background:#07f;color:#fff;text-decoration:none;border-radius:8px;margin:20px">Open</a>
+<body>
+<div class="loading" id="loading">
+<div>📡 Connecting to ESP...</div>
+<div style="margin-top:20px">
+<button onclick="loadESP()" style="background:#07f;color:#fff;border:0;padding:10px 20px;border-radius:5px">🔄 Retry</button>
+</div>
+</div>
+<iframe id="espFrame" src="http://192.168.11.1/" onload="hideLoading()" onerror="showLoading()"></iframe>
 <script>
 if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
-setTimeout(()=>location.href='http://192.168.11.1/',1500);
+function showLoading(){document.getElementById('loading').style.display='block'}
+function hideLoading(){document.getElementById('loading').style.display='none'}
+function loadESP(){document.getElementById('espFrame').src='http://192.168.11.1/?'+Date.now()}
+setTimeout(showLoading,3000);
 </script>
 </body>
 </html>
