@@ -1,5 +1,5 @@
 const CACHE_NAME='esp-v1';
-const urlsToCache=['./pwa.html','./manifest.json','./icon-152.png','./icon-192.png'];
+const urlsToCache=['./index.html','./manifest.json','./icon-152.png','./icon-192.png'];
 
 self.addEventListener('install',event=>{
 event.waitUntil(
