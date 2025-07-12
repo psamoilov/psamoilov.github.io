@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ESP</title>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="icon-152.png">
+</head>
+<body style="font-family:Arial;text-align:center;padding:50px 20px">
+<h2>ESP Device</h2>
+<div>Connecting...</div>
+<a href="http://192.168.11.1/" style="display:inline-block;padding:15px 30px;background:#07f;color:#fff;text-decoration:none;border-radius:8px;margin:20px">Open</a>
+<script>
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+setTimeout(()=>location.href='http://192.168.11.1/',1500);
+</script>
+</body>
+</html>
