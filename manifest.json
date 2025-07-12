@@ -1,6 +1,6 @@
 {
-"name":"ESP",
-"short_name":"ESP",
+"name":"Diagbox",
+"short_name":"Diagbox",
 "start_url":"/index.html",
 "display":"standalone",
 "background_color":"#fff",
